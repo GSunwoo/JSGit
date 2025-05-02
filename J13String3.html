@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J13String3.html</title>
+</head>
+<body>
+    <h2>JS의 Core객체 - String</h2>
+    <script>
+        var emailArray = ["kim@naver.com", 'sung@hanmail.net', 'park@ikosmo.co.kr'];
+        console.log("연습문제> 도메인 추출하기");
+        var getDomainStr = function(emailArr){
+            // 방법1 : indexOf()
+            let domainArr=new Array(emailArr.length);
+            for(let i = 0; i<emailArr.length; i++){
+                // @의 위치
+                let at = emailArr[i].indexOf('@');
+                // .의 위치
+                let dot = emailArr[i].indexOf('.');
+                // 위치를 기반으로 문자열을 자른다.
+                domainArr[i] = emailArr[i].substring(at+1,dot);
+            }
+            console.log(domainArr);
+
+            // 방법2 : split()
+            let domainArr2=new Array(emailArr.length);
+            for(let i = 0; i<emailArr.length;i++){
+                // 이메일을 @으로 1차 split
+                let atArr = emailArr[i].split("@");
+                // 1차 결과의 1번 인덱스의 도메인을 2차 split한다.
+                let dotArr = atArr[1].split(".");
+                // 2차 결과의 0번 인덱스를 결과 배열에 저장
+                domainArr2[i] = dotArr[0];
+            }
+            console.log(domainArr2);
+        }
+
+        getDomainStr(emailArray);
+    </script>
+</body>
+</html> 
