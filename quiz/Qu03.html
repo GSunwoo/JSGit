@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qu03.html</title>
+    <style>
+        table th, table td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function tower(asc){
+            if(asc==='asc'){
+                document.write('<h1>*로 탑 만들기</h1>\n<hr>');
+                for(let i = 0; i < 5; i++){
+                    for(let j = 0; j < 5 ; j++){
+                        if(i>=j){
+                            document.write("*");
+                        }
+                    }
+                    document.write("<br>");
+                }
+            }
+            else if(asc==='desc'){
+                document.write('<h1>*로 역순으로 탑 만들기</h1>\n<hr>');
+                for(let i = 0; i < 5; i++){
+                    for(let j = 0; j < 5 ; j++){
+                        if(i<=j){
+                            document.write("*");
+                        }
+                    }
+                    document.write("<br>");
+                }
+            }
+        }
+        tower('asc');
+        document.write("<br><br><br>");
+        tower('desc');
+    </script>
+</body>
+</html>
