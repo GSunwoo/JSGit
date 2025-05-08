@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J19Event06-mouse3.html</title>
+</head>
+<!-- 
+퀴즈] 아래 트럼프 이미지에 마우스를 
+	오버했을때 2.jpg로 교체한다. ⇒ mouseoverFunc()
+	아웃했을때 1.jpg로 교체한다. ⇒ mouseoutFunc()
+
+	다운했을때 이미지크기를 2배로 늘린다. ⇒ mousedownFunc()
+	업했을때 이미지크기를 원래대로 돌린다. ⇒ mouseupFunc()
+
+오버와 아웃은 <img> 태그에 이벤트 리스너가 부착되어 있다. 
+다운과 업은 getElementById()와 addEventListener()를 이용해서 구현한다. 
+ -->
+
+<body>
+    <script>
+        function mouseoverFunc(obj){
+            obj.src = "../images/2.jpg";
+        }
+        function mouseoutFunc(){
+            document.getElementById('card').src = "../images/1.jpg";
+            /* 태그명으로 DOM을 얻어오는 경우 2개 이상일 수 있으므로
+               배열로 가져오게 된다. 따라서 인덱스를 통해 이미지를 특정해야한다. */
+            // document.getElementsByTagName('img')[0].src = "../images/1.jpg";
+        }
+
+        window.onload = function(){
+            // 문서의 로드가 완료된 후 이미지의 DOM요소를 얻어온다.
+            var card = document.getElementById('card');      
+            card.addEventListener('mousedown', function(){
+                card.style.width = parseInt(card.style.width)*2 + 'px';
+                card.style.height = parseInt(card.style.height)*2 + 'px';
+            });
+
+            card.addEventListener('mouseup', function(){
+                card.style.width = parseInt(card.style.width)*0.5 + 'px';
+                card.style.height = parseInt(card.style.height)*0.5 + 'px';
+            });
+        }
+    </script>
+    <h3>이미지에 마우스 이벤트 적용하기</h3>
+    <img id="card" src="../images/1.jpg" alt="하트" style="width:227px;height:313px;margin: 10px;" 
+        onmouseover="mouseoverFunc(this);" onmouseout="mouseoutFunc();" />
+    
+</body>
+</html>
