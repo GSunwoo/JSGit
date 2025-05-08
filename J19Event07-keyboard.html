@@ -88,7 +88,7 @@
     
     <h4>주민등록번호 입력하기</h4>
     <input type="text" id="ju1" size="6" onkeyup="fnJuminFocus();" maxlength="6"> - 
-    <input type="text" id="ju2" size="7" onkeyup="commonFocusMove('ju2',7,'tel1');">
+    <input type="text" id="ju2" size="7" onkeyup="commonFocusMove('ju2',7,'tel1');" maxlength="7">
     <br>
     <!-- 
     연습문제] 앞에서와 마찬가지로 주민번호 뒤 7자리를 입력하면
@@ -96,8 +96,8 @@
     함수를 생성하시오.
     -->
     <h3>휴대전화번호 입력하기</h3>
-    <input type="text" id="tel1" size="3" onkeyup="commonFocusMove('tel1',3,'tel2');"> -
-    <input type="text" id="tel2" size="4" onkeyup="commonFocusMove('tel2',4,'tel3');"> -
-    <input type="text" id="tel3" size="4">
+    <input type="text" id="tel1" size="3" onkeyup="commonFocusMove('tel1',3,'tel2');" maxlength="3"> -
+    <input type="text" id="tel2" size="4" onkeyup="commonFocusMove('tel2',4,'tel3');" maxlength="4"> -
+    <input type="text" id="tel3" size="4" maxlength="4">
 </body>
 </html>
